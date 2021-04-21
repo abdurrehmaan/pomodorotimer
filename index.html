@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .yellowcolor {
+            border: 3px solid yellow;
+        }
+
+        .greencolor {
+            border: 5px solid green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="worktimer" style="height: 200px; width: 200px;
+    ">
+
+        <h1><span class="minuts">00</span>: <span class="seconds">00</span></h1>
+
+    </div>
+
+    <br>
+    <br>
+    <div>
+        <label for="">Enter task name</label>
+        <input type="text" class="taskname">
+    </div>
+    <br>
+
+    <div>
+        <label for="">Work Time</label><input type="number" class="workinterval" value="2">
+        <label for="">Break Time</label> <input type="number" class="breakinterval" value="1">
+
+    </div>
+    <div>
+        <br>
+        <br>
+
+        <button class="btnstart">start</button>
+        <button class="btnpause">pause</button>
+        <br>
+        <br>
+        <button class="btnresume">Resume</button>
+        <button class="btnstop">stop</button>
+
+    </div>
+    <script src="./js/script.js"></script>
+
+</body>
+
+</html>
