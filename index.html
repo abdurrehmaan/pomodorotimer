@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
     <title>Document</title>
     <style>
         .yellowcolor {
@@ -15,47 +19,50 @@
             border: 5px solid green;
         }
     </style>
+
 </head>
 
 <body>
+    <div class="container">
 
-    <div class="worktimer" style="height: 200px; width: 200px;
+        <div class="worktimer" style="height: 200px; width: 200px;
     ">
 
-        <h1><span class="minuts">00</span>: <span class="seconds">00</span></h1>
+            <h1><span class="minuts">00</span>: <span class="seconds">00</span></h1>
 
-    </div>
+        </div>
 
-    <br>
-    <br>
-    <div>
-        <label for="">Enter task name</label>
-        <input type="text" class="taskname">
-    </div>
-    <br>
-
-    <div>
-        <label for="">Work Time</label><input type="number" class="workinterval" value="">
-        <label for="">Break Time</label> <input type="number" class="breakinterval" value="">
-
-    </div>
-    <div>
         <br>
         <br>
-
-        <button class="btnstart">start</button>
-        <button class="btnpause">pause</button>
+        <div>
+            <label for="">Enter task name</label>
+            <input type="text" class="taskname">
+        </div>
         <br>
-        <br>
-        <button class="btnresume">Resume</button>
-        <button class="btnstop">stop</button>
 
-    </div>
-    <div class="completedList">
-        <ul>
+        <div>
+            <label for="">Work Time</label><input type="number" class="workinterval" value="2">
+            <label for="">Break Time</label> <input type="number" class="breakinterval" value="1">
 
-        </ul>
+        </div>
+        <div>
+            <br>
+            <br>
 
+            <button class="btnstart">start</button>
+            <button class="btnpause">pause</button>
+            <br>
+            <br>
+            <button class="btnresume">Resume</button>
+            <button class="btnstop">stop</button>
+
+        </div>
+        <div class="completedList">
+            <ul>
+
+            </ul>
+
+        </div>
     </div>
     <script src="./js/script.js"></script>
 
