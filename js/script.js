@@ -7,17 +7,32 @@ const stopbutton = document.querySelector('.btnstop')
 const taskname = document.querySelector('.taskname')
 const worktimer = document.querySelector('.worktimer');
 const worktimer2 = document.querySelector('.worktimer2');
+const completedList = document.querySelector('.completedList ul ');
 
 let i = 0;
+let isworktime;
+let isbreaktime;
+let ispause;
+let wt;
+let totalWorkTime;
+let bt;
+let totalbreakTime;
+
+function refresh() {
+    isworktime = true;
+    isbreaktime = false;
+    ispause = false;
+    i = 0;
+    wt = worktime.value;
+    totalWorkTime = wt * 60;
+    bt = breaktime.value;
+    totalbreakTime = bt * 60;
+    const html = `<h1><span class="minuts">00</span>: <span class="seconds">00</span></h1>`
+    worktimer.innerHTML = html;
+}
+refresh();
 
 
-isworktime = true;
-isbreaktime = true;
-
-let wt = worktime.value;
-let totalWorkTime = wt * 60;
-let bt = breaktime.value;
-let totalbreakTime = bt * 60;
 
 
 let worktimefun = () => {
@@ -36,7 +51,6 @@ let worktimefun = () => {
 }
 
 let breaktimefun = () => {
-    console.log("i am in break timer");
     i++;
     let newbreaktime = totalbreakTime;
     let seconds = parseInt(newbreaktime % 60);
@@ -51,41 +65,77 @@ let breaktimefun = () => {
 
 
 }
+let abc
 startbutton.addEventListener('click', () => {
-    let abc = setInterval(e => {
-        if (isworktime) {
-            worktimefun();
-            if (totalWorkTime == 0) {
-                isbreaktime = true;
-                isworktime = false;
-                wt = worktime.value;
-                totalWorkTime = wt * 60;
-            }
-            else {
-                totalWorkTime--;
-            }
 
-        }
-        else {
-            breaktimefun();
-            if (totalbreakTime == 0) {
-                isbreaktime = false;
-                isworktime = true;
-                bt = breaktime.value;
-                totalbreakTime = bt * 60;
-
+    abc = setInterval(e => {
+        if (!ispause) {
+            if (isworktime) {
+                worktimefun();
+                if (totalWorkTime == 0) {
+                    isbreaktime = true;
+                    isworktime = false;
+                    wt = worktime.value;
+                    totalWorkTime = wt * 60;
+                }
+                else {
+                    totalWorkTime--;
+                }
 
             }
             else {
-                totalbreakTime--;
+                breaktimefun();
+                if (totalbreakTime == 0) {
+                    isbreaktime = false;
+                    isworktime = true;
+                    bt = breaktime.value;
+                    totalbreakTime = bt * 60;
+
+
+                }
+                else {
+                    totalbreakTime--;
+                }
+
             }
 
         }
-
     }, 100);
+
 
 })
 
+pausebutton.addEventListener('click', e => {
+
+    ispause = true;
+
+})
+resumebutton.addEventListener('click', e => {
+    ispause = false;
+})
+stopbutton.addEventListener('click', e => {
+
+    clearInterval(abc)
+    displayinlist(i)
+    refresh()
+
+
+
+})
+function displayinlist(i) {
+
+
+    let newworktime = i;
+    let seconds = parseInt(newworktime % 60);
+    let minuts = parseInt(newworktime / 60) % 60;
+    let hours = parseInt(newworktime / 3600);
+    console.log(hours, ":", minuts, ":", seconds)
+    let message = `<li>Task completed in ${hours} : ${minuts}: ${seconds}</li>`;
+    completedList.innerHTML += message
+
+
+
+}
 
 
 
