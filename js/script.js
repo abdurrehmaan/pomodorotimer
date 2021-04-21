@@ -30,7 +30,18 @@ function refresh() {
     const html = `<h1><span class="minuts">00</span>: <span class="seconds">00</span></h1>`
     worktimer.innerHTML = html;
 }
+
 refresh();
+taskname.addEventListener('keyup', (e) => {
+    e.preventDefault();
+    if (e.target.value.trim() != "") {
+        startbutton.removeAttribute('disabled');
+    }
+    else {
+        startbutton.setAttribute('disabled', "");
+
+    }
+})
 
 
 
@@ -67,6 +78,7 @@ let breaktimefun = () => {
 }
 let abc
 startbutton.addEventListener('click', () => {
+    refresh();
 
     abc = setInterval(e => {
         if (!ispause) {
@@ -124,13 +136,13 @@ stopbutton.addEventListener('click', e => {
 })
 function displayinlist(i) {
 
-
+    const tasknamevalue = taskname.value;
     let newworktime = i;
     let seconds = parseInt(newworktime % 60);
     let minuts = parseInt(newworktime / 60) % 60;
     let hours = parseInt(newworktime / 3600);
     console.log(hours, ":", minuts, ":", seconds)
-    let message = `<li>Task completed in ${hours} : ${minuts}: ${seconds}</li>`;
+    let message = `<li>${tasknamevalue} completed in ${hours} : ${minuts}: ${seconds}</li>`;
     completedList.innerHTML += message
 
 
