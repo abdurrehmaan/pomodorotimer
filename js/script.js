@@ -39,13 +39,8 @@ taskname.addEventListener('keyup', (e) => {
     }
     else {
         startbutton.setAttribute('disabled', "");
-
     }
 })
-
-
-
-
 let worktimefun = () => {
     let newworktime = totalWorkTime;
     let seconds = parseInt(newworktime % 60);
@@ -57,10 +52,7 @@ let worktimefun = () => {
 
     const html = `<h1><span class="minuts">${minuts}</span>: <span class="seconds">${seconds}</span></h1>`
     worktimer.innerHTML = html;
-
-
 }
-
 let breaktimefun = () => {
     i++;
     let newbreaktime = totalbreakTime;
@@ -70,11 +62,6 @@ let breaktimefun = () => {
     worktimer.classList.add("yellowcolor");
     const html = `<h1><span class="minuts">${minuts}</span>: <span class="seconds">${seconds}</span></h1>`
     worktimer.innerHTML = html;
-
-
-
-
-
 }
 let abc
 startbutton.addEventListener('click', () => {
@@ -93,7 +80,6 @@ startbutton.addEventListener('click', () => {
                 else {
                     totalWorkTime--;
                 }
-
             }
             else {
                 breaktimefun();
@@ -102,25 +88,18 @@ startbutton.addEventListener('click', () => {
                     isworktime = true;
                     bt = breaktime.value;
                     totalbreakTime = bt * 60;
-
-
                 }
                 else {
                     totalbreakTime--;
                 }
-
             }
-
         }
     }, 100);
-
-
 })
 
 pausebutton.addEventListener('click', e => {
 
     ispause = true;
-
 })
 resumebutton.addEventListener('click', e => {
     ispause = false;
@@ -130,9 +109,6 @@ stopbutton.addEventListener('click', e => {
     clearInterval(abc)
     displayinlist(i)
     refresh()
-
-
-
 })
 function displayinlist(i) {
 
@@ -143,10 +119,7 @@ function displayinlist(i) {
     let hours = parseInt(newworktime / 3600);
     console.log(hours, ":", minuts, ":", seconds)
     let message = `<li>${tasknamevalue} completed in ${hours} : ${minuts}: ${seconds}</li>`;
-    completedList.innerHTML += message
-
-
-
+    completedList.innerHTML += message;
 }
 
 
