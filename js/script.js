@@ -7,6 +7,7 @@ const stopbutton = document.querySelector('.btnstop')
 const taskname = document.querySelector('.taskname')
 const worktimer = document.querySelector('.worktimer');
 const worktimer2 = document.querySelector('.worktimer2');
+const completedList = document.querySelector('.completedList ul ');
 
 let i = 0;
 let isworktime;
@@ -129,6 +130,8 @@ function displayinlist(i) {
     let minuts = parseInt(newworktime / 60) % 60;
     let hours = parseInt(newworktime / 3600);
     console.log(hours, ":", minuts, ":", seconds)
+    let message = `<li>Task completed in ${hours} : ${minuts}: ${seconds}</li>`;
+    completedList.innerHTML += message
 
 
 
