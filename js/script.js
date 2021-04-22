@@ -123,6 +123,8 @@ stopbutton.addEventListener('click', e => {
     resumebutton.classList.add('d-none');
 
     worktimer.classList.add('worktimer2');
+    taskname.value="";
+
 })
 function displayinlist(i) {
 
