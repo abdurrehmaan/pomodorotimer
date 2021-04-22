@@ -125,6 +125,7 @@ stopbutton.addEventListener('click', e => {
 
     worktimer.classList.add('worktimer2');
     taskname.value = "";
+    startbutton.setAttribute('disabled', "");
 
 })
 function displayinlist(i) {
@@ -134,7 +135,6 @@ function displayinlist(i) {
     let seconds = parseInt(newworktime % 60);
     let minuts = parseInt(newworktime / 60) % 60;
     let hours = parseInt(newworktime / 3600);
-    console.log(hours, ":", minuts, ":", seconds)
     let message = `<li>${tasknamevalue} completed in <br> ${hours} hours : ${minuts} mints : ${seconds} Seconds</li>`;
     completedList.innerHTML += message;
 }
