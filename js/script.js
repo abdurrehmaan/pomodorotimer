@@ -27,7 +27,7 @@ function refresh() {
     totalWorkTime = wt * 60;
     bt = breaktime.value;
     totalbreakTime = bt * 60;
-    const html = `<h1><span class="minuts">00</span>: <span class="seconds">00</span></h1>`
+    const html = `<h1><span class="minuts">00</span><span>:<span><span class="seconds">00</span></h1>`
     worktimer.innerHTML = html;
 }
 
@@ -105,7 +105,7 @@ resumebutton.addEventListener('click', e => {
     ispause = false;
 })
 stopbutton.addEventListener('click', e => {
-
+    e.preventDefault();
     clearInterval(abc)
     displayinlist(i)
     refresh()
@@ -118,7 +118,7 @@ function displayinlist(i) {
     let minuts = parseInt(newworktime / 60) % 60;
     let hours = parseInt(newworktime / 3600);
     console.log(hours, ":", minuts, ":", seconds)
-    let message = `<li>${tasknamevalue} completed in ${hours} : ${minuts}: ${seconds}</li>`;
+    let message = `<li>${tasknamevalue} completed in <br> ${hours} hours : ${minuts} mints : ${seconds} Seconds</li>`;
     completedList.innerHTML += message;
 }
 
