@@ -25,6 +25,7 @@ function refresh() {
     i = 0;
     wt = worktime.value;
     totalWorkTime = wt * 60;
+    totalWorkTime = totalWorkTime - 1;
     bt = breaktime.value;
     totalbreakTime = bt * 60;
     const html = `<h1><span class="minuts">00</span><span>:<span><span class="seconds">00</span></h1>`
@@ -43,7 +44,7 @@ taskname.addEventListener('keyup', (e) => {
 })
 let worktimefun = () => {
     let newworktime = totalWorkTime;
-    let seconds = parseInt(newworktime % 60);
+    let seconds = parseInt((newworktime % 60));
     let minuts = parseInt(newworktime / 60) % 60;
     i++;
     worktimer.classList.remove("yellowcolor");
@@ -123,7 +124,7 @@ stopbutton.addEventListener('click', e => {
     resumebutton.classList.add('d-none');
 
     worktimer.classList.add('worktimer2');
-    taskname.value="";
+    taskname.value = "";
 
 })
 function displayinlist(i) {
