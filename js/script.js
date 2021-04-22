@@ -66,6 +66,10 @@ let breaktimefun = () => {
 let abc
 startbutton.addEventListener('click', () => {
     refresh();
+    startbutton.classList.add('d-none')
+    pausebutton.classList.remove('d-none');
+    stopbutton.classList.remove('d-none');
+    worktimer.classList.remove('worktimer2');
 
     abc = setInterval(e => {
         if (!ispause) {
@@ -94,21 +98,31 @@ startbutton.addEventListener('click', () => {
                 }
             }
         }
-    }, 100);
+    }, 1000);
 })
 
 pausebutton.addEventListener('click', e => {
 
     ispause = true;
+    pausebutton.classList.add('d-none')
+    resumebutton.classList.remove('d-none');
 })
 resumebutton.addEventListener('click', e => {
     ispause = false;
+    pausebutton.classList.remove('d-none')
+    resumebutton.classList.add('d-none');
 })
 stopbutton.addEventListener('click', e => {
     e.preventDefault();
     clearInterval(abc)
     displayinlist(i)
     refresh()
+    startbutton.classList.remove('d-none')
+    pausebutton.classList.add('d-none');
+    stopbutton.classList.add('d-none');
+    resumebutton.classList.add('d-none');
+
+    worktimer.classList.add('worktimer2');
 })
 function displayinlist(i) {
 
