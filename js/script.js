@@ -7,6 +7,7 @@ const stopbutton = document.querySelector('.btnstop')
 const taskname = document.querySelector('.taskname')
 const worktimer = document.querySelector('.worktimer');
 const worktimer2 = document.querySelector('.worktimer2');
+const alertmessage = document.querySelector('.alertmessage');
 const completedList = document.querySelector('.completedList ul ');
 
 let i = 0;
@@ -31,15 +32,17 @@ function refresh() {
     const html = `<h1><span class="minuts">00</span><span>:<span><span class="seconds">00</span></h1>`
     worktimer.innerHTML = html;
 }
-
 refresh();
 taskname.addEventListener('keyup', (e) => {
     e.preventDefault();
     if (e.target.value.trim() != "") {
-        startbutton.removeAttribute('disabled');
+        startbutton.classList.remove('startgrey');
+        startbutton.classList.add('startblue')
+        alertmessage.classList.add('d-none');
     }
     else {
-        startbutton.setAttribute('disabled', "");
+        startbutton.classList.add('startgrey');
+        startbutton.classList.remove('startblue')
     }
 })
 let worktimefun = () => {
@@ -66,6 +69,12 @@ let breaktimefun = () => {
 }
 let abc
 startbutton.addEventListener('click', () => {
+
+    if (taskname.value === "") {
+        alertmessage.classList.remove('d-none');
+        return;
+    }
+
     refresh();
     startbutton.classList.add('d-none')
     pausebutton.classList.remove('d-none');
@@ -125,11 +134,10 @@ stopbutton.addEventListener('click', e => {
 
     worktimer.classList.add('worktimer2');
     taskname.value = "";
-    startbutton.setAttribute('disabled', "");
-
+    startbutton.classList.add('startgrey');
+    startbutton.classList.remove('startblue')
 })
 function displayinlist(i) {
-
     const tasknamevalue = taskname.value;
     let newworktime = i;
     let seconds = parseInt(newworktime % 60);
@@ -138,7 +146,3 @@ function displayinlist(i) {
     let message = `<li>${tasknamevalue} completed in <br> ${hours} hours : ${minuts} mints : ${seconds} Seconds</li>`;
     completedList.innerHTML += message;
 }
-
-
-
-
