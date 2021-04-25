@@ -44,6 +44,7 @@ taskname.addEventListener('keyup', (e) => {
         startbutton.classList.add('startgrey');
         startbutton.classList.remove('startblue')
     }
+
 })
 let worktimefun = () => {
     let newworktime = totalWorkTime;
@@ -68,7 +69,7 @@ let breaktimefun = () => {
     worktimer.innerHTML = html;
 }
 let abc
-startbutton.addEventListener('click', () => {
+const a = startbutton.addEventListener('click', () => {
 
     if (taskname.value === "") {
         alertmessage.classList.remove('d-none');

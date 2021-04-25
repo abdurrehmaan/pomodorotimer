@@ -1,5 +1,5 @@
 :root{
-    --gray: #dfdede;
+    --gray: #eeeded;
 }
 
 .yellowcolor {
@@ -36,7 +36,7 @@
     justify-content: center;
     align-items: center;
     margin: auto;
-    background-color: var(--gray);
+    background-color: white;
     /* border: none; */
     outline: none;
     color:#2980b9;
