@@ -8,4 +8,4 @@ The basic process is as follows:
 - Work until the timer rings.
 - Take a short, five minutes break.
 - List the Complted to task
-- Calucate to totle time(worktime + breaktime)
+- Calucate to total time(worktime + breaktime)
