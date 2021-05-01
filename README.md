@@ -402,4 +402,6 @@ document.getElementById("reset-button").addEventListener("click", () => {
 });
 ```
 And that’s the wrap up of my project!
+You’ve reached the end of this tutorial. At this point, you should have a functioning Pomodoro timer application with useful features like sound alerts and notifications. If you have any questions or suggestions, please leave a comment below.
 
+Thanks for reading, and happy coding!
